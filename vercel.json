@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "name": "nightvibe-frontend",
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
+  "installCommand": "cd frontend && npm install",
+  "framework": "vite",
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "https://nightvibe-api.vercel.app/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "env": {
+    "VITE_API_URL": "@nightvibe_api_url"
+  },
+  "build": {
+    "env": {
+      "VITE_API_URL": "@nightvibe_api_url"
+    }
+  }
+}
