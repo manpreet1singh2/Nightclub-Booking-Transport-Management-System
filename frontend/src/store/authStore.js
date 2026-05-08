@@ -48,7 +48,6 @@ export const useAuthStore = create(
     {
       name: 'nightvibe-auth',
       onRehydrateStorage: () => (state) => {
-        // Restore auth header on app load
         if (state?.token) {
           api.defaults.headers.common['Authorization'] = `Bearer ${state.token}`;
         }
