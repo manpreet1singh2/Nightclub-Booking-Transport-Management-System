@@ -2,30 +2,7 @@
   "buildCommand": "cd frontend && npm install && npm run build",
   "outputDirectory": "frontend/dist",
   "framework": null,
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "rewrites": [
-    { "source": "/api/clubs",                        "destination": "/api/clubs/index.js" },
-    { "source": "/api/clubs/:id/packages",           "destination": "/api/clubs/[id]/packages.js" },
-    { "source": "/api/clubs/:id/availability",       "destination": "/api/clubs/[id]/availability.js" },
-    { "source": "/api/clubs/:id",                    "destination": "/api/clubs/[id]/index.js" },
-    { "source": "/api/auth/register",                "destination": "/api/auth/register.js" },
-    { "source": "/api/auth/login",                   "destination": "/api/auth/login.js" },
-    { "source": "/api/auth/me",                      "destination": "/api/auth/me.js" },
-    { "source": "/api/auth/change-password",         "destination": "/api/auth/change-password.js" },
-    { "source": "/api/bookings/my-bookings",         "destination": "/api/bookings/my-bookings.js" },
-    { "source": "/api/bookings",                     "destination": "/api/bookings/index.js" },
-    { "source": "/api/payments/create-order",        "destination": "/api/payments/create-order.js" },
-    { "source": "/api/payments/verify",              "destination": "/api/payments/verify.js" },
-    { "source": "/api/admin/dashboard",              "destination": "/api/admin/dashboard.js" },
-    { "source": "/api/admin/analytics",              "destination": "/api/admin/analytics.js" },
-    { "source": "/api/admin/users",                  "destination": "/api/admin/users.js" },
-    { "source": "/api/transport/drivers",            "destination": "/api/transport/index.js" },
-    { "source": "/api/transport",                    "destination": "/api/transport/index.js" },
-    { "source": "/api/users/profile",               "destination": "/api/users/profile.js" },
-    { "source": "/(.*)",                             "destination": "/index.html" }
+    { "source": "/((?!api).*)", "destination": "/index.html" }
   ]
 }
