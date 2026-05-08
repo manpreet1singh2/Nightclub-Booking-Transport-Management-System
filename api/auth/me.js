@@ -17,13 +17,15 @@ module.exports = (req, res) => {
         id: decoded.userId,
         email: decoded.email,
         role: decoded.role,
-        name: decoded.email?.split('@')[0] || 'User',
-        phone: '9876543210',
+        name: decoded.name || decoded.email?.split('@')[0] || 'User',
+        phone: decoded.phone || '9876543210',
         isActive: true,
         whatsappEnabled: true,
+        createdAt: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),
+        lastLogin: new Date().toISOString(),
       }
     });
-  } catch {
+  } catch (e) {
     return res.status(401).json({ error: 'Invalid token' });
   }
 };
